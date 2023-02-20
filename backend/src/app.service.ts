@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  getMonitorStatus(): string {
+    return JSON.stringify({ statusCode: 200 });
   }
 }
