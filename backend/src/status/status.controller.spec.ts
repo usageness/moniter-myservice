@@ -18,12 +18,12 @@ describe('StatusController', () => {
 
   describe('root', () => {
     it('모니터링 상태 체크는 200을 반환해야 한다.', async () => {
-      const result = JSON.stringify({ statusCode: 200 });
+      const result = Object.assign({ statusCode: 200 });
       jest
         .spyOn(statusService, 'getMonitorStatus')
         .mockImplementation(() => result);
 
-      expect(await statusController.getMonitorStatus()).toBe(result);
+      expect(await statusController.getMonitorStatus()).toStrictEqual(result);
     });
   });
 });
