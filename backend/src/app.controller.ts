@@ -6,7 +6,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getMonitorStatus(): string {
-    return this.appService.getMonitorStatus();
+  getIndex(): string {
+    return this.appService.getIndex();
   }
 }
