@@ -1,6 +1,6 @@
 {
   "name": "boilerplate",
-  "packageManager": "yarn@3.2.3",
+  "packageManager": "yarn@3.4.1",
   "description": "Boilerplate for new project",
   "main": "src/index.tsx",
   "scripts": {
