@@ -11,7 +11,7 @@
 #.pnp.*
 
 # ide files
-.vscode
+# .vscode
 .editorconfig
 
 # build results
