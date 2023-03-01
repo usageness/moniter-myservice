@@ -10,6 +10,11 @@ export class StatusController {
     return this.statusService.getMonitorStatus();
   }
 
+  @Get('/all')
+  getServiceStatusAll() {
+    return this.statusService.getServiceStatusAll();
+  }
+
   @Get(':id')
   getServiceStatus(@Param('id') id: string) {
     return this.statusService.getServiceStatus(id);
