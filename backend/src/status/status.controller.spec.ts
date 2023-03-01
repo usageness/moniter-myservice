@@ -52,5 +52,36 @@ describe('StatusController', () => {
         result,
       );
     });
+
+    it('전체 서비스 상태 체크에 성공하면 200을 반환해야 한다.', async () => {
+      const result = Object.assign({
+        services: [
+          {
+            name: 'blog_vercel',
+            statusCode: 200,
+          },
+          {
+            name: 'blog_tistory',
+            statusCode: 200,
+          },
+          {
+            name: 'thumbnail_generator',
+            statusCode: 200,
+          },
+          {
+            name: 'cors_proxy_server',
+            statusCode: 200,
+          },
+        ],
+      });
+
+      jest
+        .spyOn(statusService, 'getServiceStatusAll')
+        .mockImplementation(() => result);
+
+      expect(await statusController.getServiceStatusAll()).toStrictEqual(
+        result,
+      );
+    });
   });
 });
