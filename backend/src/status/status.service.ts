@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 import axios from 'axios';
-import getServiceURLById from 'src/utils/getServiceURLById';
+import getServiceURLById, { serviceList } from 'src/utils/getServiceURLById';
 
 @Injectable()
 export class StatusService {
@@ -21,5 +21,25 @@ export class StatusService {
     }
 
     return Object.assign({ statusCode: status });
+  }
+
+  async getServiceStatusAll(): Promise<string> {
+    const statusArray = { services: [] };
+
+    try {
+      const serviceListArray = Object.entries(serviceList);
+      const responseArray = await Promise.all(
+        serviceListArray.map(async ([key]) => {
+          const response = await axios.get(getServiceURLById(key));
+          return { name: key, statusCode: response.status };
+        }),
+      );
+
+      statusArray.services = responseArray;
+    } catch (err) {
+      console.log(err);
+    }
+
+    return Object.assign(statusArray);
   }
 }
