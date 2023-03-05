@@ -38,6 +38,8 @@ module.exports = {
       styles: path.resolve(__dirname, './src/styles'),
       components: path.resolve(__dirname, './src/components'),
       types: path.resolve(__dirname, './src/types'),
+      hooks: path.resolve(__dirname, './src/hooks'),
+      store: path.resolve(__dirname, './src/store'),
       utils: path.resolve(__dirname, './src/utils'),
     },
   },
