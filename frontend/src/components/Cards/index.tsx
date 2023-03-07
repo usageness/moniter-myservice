@@ -14,7 +14,7 @@ function Cards() {
 
     if (serverData.length > 0) return;
 
-    fetch('http://localhost:7611/status/all')
+    fetch('http://host.teamcrazyperformance.com:7611/status/all')
       .then(response => response.json())
       .then(result => {
         setServerStatus(result.services);
