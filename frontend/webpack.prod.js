@@ -20,6 +20,9 @@ module.exports = merge(common, {
       },
     ],
   },
+  devServer: {
+    allowedHosts: 'all',
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
