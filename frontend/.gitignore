@@ -16,3 +16,6 @@
 
 # build results
 dist
+
+# environment files
+.env

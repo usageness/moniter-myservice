@@ -4,6 +4,8 @@ import { ServerContext } from 'store/serverContext';
 
 import styles from './index.scss';
 
+const baseURL = process.env.BASE_URL;
+
 function Cards() {
   const serverDataObject = useContext(ServerContext);
 
@@ -14,7 +16,7 @@ function Cards() {
 
     if (serverData.length > 0) return;
 
-    fetch('http://host.teamcrazyperformance.com:7611/status/all')
+    fetch(`${baseURL}/status/all`)
       .then(response => response.json())
       .then(result => {
         setServerStatus(result.services);
